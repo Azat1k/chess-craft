@@ -15,9 +15,9 @@ export class King extends Figures {
         this.logo = color === Colors.black ? blackLogo : whiteLogo;
         this.name = FigureNames.KING
         this.movement = [
-            new LimitedMovement(new VerticalMovement(),0),
-            new LimitedMovement(new HorizontalMovement(),0),
-            new LimitedMovement(new DiagonalMovement(),0)
+            new LimitedMovement(new VerticalMovement(),1),
+            new LimitedMovement(new HorizontalMovement(),1),
+            new LimitedMovement(new DiagonalMovement(),1)
         ]
     }
 }

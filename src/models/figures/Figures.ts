@@ -56,7 +56,6 @@ export class Figures {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    moveFigure (_target: Square): boolean {
-        return true
+    moveFigure (_target: Square): void {
     }
 }

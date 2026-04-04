@@ -21,25 +21,26 @@ const BoardComponent: FC<BoardProps> = ({board, setBoard, currentPlayer, swapPla
             swapPlayer();
             setSelectedSquare(null);
         } else {
-            if (square.figure?.color === currentPlayer?.colors)
-            setSelectedSquare(square);
+            if (square.figure?.color === currentPlayer?.colors) {
+                setSelectedSquare(square);
+            }
         }
 
-    }
-
-    useEffect(() => {
-        highlightSquares()
-    }, [selectedSquare])
-
-    function highlightSquares() {
-        board.highlightSquares(selectedSquare)
-        updateBoard()
     }
 
     function updateBoard () {
         const newBoard = board.getCopyBoard ()
         setBoard(newBoard)
     }
+    
+    function highlightSquares() {
+        board.highlightSquares(selectedSquare)
+        updateBoard()
+    }
+    
+    useEffect(() => {
+        highlightSquares()
+    }, [selectedSquare])
 
     return (
         <>

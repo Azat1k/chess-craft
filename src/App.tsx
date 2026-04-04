@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
 import './App.css'
+import {useEffect, useState} from 'react';
 import BoardComponent from "./components/BoardComponent";
 import {Board} from "./models/Board";
 import {Colors} from "./models/Colors";
@@ -19,7 +19,6 @@ const App = () => {
   }
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     restart()
     setCurrentPlayer(whitePlayer)
   }, [whitePlayer]);

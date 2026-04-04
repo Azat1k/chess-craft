@@ -19,8 +19,7 @@ export class Pawn extends Figures {
     }
 
 
-    // @ts-ignore
-    moveFigure (target: Square) {
+    override moveFigure (target: Square) {
         super.moveFigure(target);
         this.isFirstStep = false;
     }
