@@ -1,4 +1,3 @@
-import './App.css'
 import {useEffect, useState} from 'react';
 import BoardComponent from "./components/BoardComponent";
 import {Board} from "./models/Board";
@@ -22,8 +21,6 @@ const App = () => {
     restart()
     setCurrentPlayer(whitePlayer)
   }, [whitePlayer]);
-
-
 
   function swapPlayer () {
     setCurrentPlayer(currentPlayer?.colors === Colors.white ? blackPlayer : whitePlayer)
