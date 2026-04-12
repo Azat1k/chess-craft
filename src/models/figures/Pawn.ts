@@ -1,11 +1,11 @@
-import {FigureNames, Figures} from "./Figures";
+import {FigureNames, Figure} from "./Figure.ts";
 import {Colors} from "../Colors";
 import {Square} from "../Square";
 import blackLogo from '../../assets/black-pawn.png'
 import whiteLogo from '../../assets/white-pawn.png'
 import {PawnMovement} from "../movement/PawnMovement";
 
-export class Pawn extends Figures {
+export class Pawn extends Figure {
 
     isFirstStep: boolean = true;
     direction: number;

@@ -1,4 +1,4 @@
-import {FigureNames, Figures} from "./Figures";
+import {FigureNames, Figure} from "./Figure.ts";
 import {Colors} from "../Colors";
 import {Square} from "../Square";
 import blackLogo from '../../assets/black-king.png'
@@ -8,7 +8,7 @@ import {HorizontalMovement} from "../movement/HorizontalMovement";
 import {DiagonalMovement} from "../movement/DiagonalMovement";
 import {LimitedMovement} from "../movement/LimitedMovement";
 
-export class King extends Figures {
+export class King extends Figure {
 
     constructor(color: Colors, square: Square) {
         super(color, square);

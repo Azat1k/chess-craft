@@ -3,6 +3,7 @@ import {Board} from "../models/Board";
 import {Square} from "../models/Square";
 import SquareComponent from "./SquareComponent";
 import {Player} from "../models/Players";
+import { Textarea } from "@/components/ui/warcraftcn/textarea";
 
 
 interface BoardProps {
@@ -44,9 +45,7 @@ const BoardComponent: FC<BoardProps> = ({board, setBoard, currentPlayer, swapPla
 
     return (
         <>
-            <h3>
-                Current player - {currentPlayer?.colors}
-            </h3>
+                <Textarea className="max-w-sm" rows="10" placeholder={currentPlayer?.colors} />;
             <div className='board'>
                 {board.squares.map((row , index) =>
                     <React.Fragment key={index}>
