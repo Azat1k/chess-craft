@@ -1,4 +1,4 @@
-import {FigureNames, Figures} from "./Figures";
+import {FigureNames, Figure} from "./Figure.ts";
 import {Colors} from "../Colors";
 import {Square} from "../Square";
 import blackLogo from '../../assets/black-rook.png'
@@ -6,7 +6,7 @@ import whiteLogo from '../../assets/white-rook.png'
 import {VerticalMovement} from "../movement/VerticalMovement";
 import {HorizontalMovement} from "../movement/HorizontalMovement";
 
-export class Rook extends Figures {
+export class Rook extends Figure {
 
     constructor(color: Colors, square: Square) {
         super(color, square);

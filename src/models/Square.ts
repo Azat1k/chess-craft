@@ -1,17 +1,17 @@
 import {Colors} from "./Colors";
-import {Figures} from "./figures/Figures";
+import {Figure} from "./figures/Figure.ts";
 import {Board} from "./Board";
 
 export class Square {
     readonly x: number;
     readonly y: number;
     readonly color: Colors;
-    figure: Figures | null;
+    figure: Figure | null;
     board: Board;
     available: boolean;
     id: number;
 
-    constructor (board: Board, x: number, y: number, color: Colors, figure: Figures | null) {
+    constructor (board: Board, x: number, y: number, color: Colors, figure: Figure | null) {
         this.x = x;
         this.y = y;
         this.color = color;
@@ -25,14 +25,17 @@ export class Square {
         return this.figure === null;
     }
 
-    setFigure (figure: Figures) {
+    setFigure (figure: Figure) {
         this.figure = figure;
         this.figure.square = this;
     }
 
     moveFigure (target: Square) {
         if (this.figure && this.figure?.canMove(target)) {
-            this.figure?.moveFigure(target);
+            this.figure?.moveFigure(target)
+            if(target.figure) {
+                this.board.addLostFigure(target.figure)
+            }
             target.setFigure(this.figure);
             this.figure = null;
         }

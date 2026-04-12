@@ -6,10 +6,13 @@ import {Knight} from "./figures/Knight";
 import {Bishop} from "./figures/Bishop";
 import {King} from "./figures/King";
 import {Queen} from "./figures/Queen";
+import type {Figure} from "@/models/figures/Figure.ts";
 
 
 export class Board {
     squares: Square [][] = []
+    lostBlackFigures: Figure[] = []
+    lostWhiteFigures:  Figure[] = []
 
     public initSquares() {
         this.squares = [] // очищаем массив что бы потом добавить функционал рестарта
@@ -31,6 +34,14 @@ export class Board {
         return this.squares[y][x]
     }
 
+    addLostFigure(figure: Figure) {
+        if (figure.color === Colors.black) {
+            this.lostBlackFigures.push(figure)
+        } else {
+            this.lostWhiteFigures.push(figure)
+        }
+    }
+
     public highlightSquares (selectedSquare: Square | null) {
         for (let i = 0; i < this.squares.length; i++) {
             const row = this.squares[i]
@@ -44,6 +55,8 @@ export class Board {
     public getCopyBoard(): Board {
         const newBoard = new Board()
         newBoard.squares = this.squares.map(row => row.map(square => square));
+        newBoard.lostWhiteFigures = this.lostWhiteFigures
+        newBoard.lostBlackFigures = this.lostBlackFigures
         return newBoard
     }
 

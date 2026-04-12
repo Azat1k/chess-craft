@@ -15,22 +15,24 @@ export enum FigureNames {
     PAWN = 'Пешка',
 }
 
-export class Figures {
+export class Figure {
     color: Colors;
     logo: typeof logo | null;
     square: Square;
     name: FigureNames;
+    static counter: number = 0;
     id: number;
     board: Board;
     movement: Movement[];
 
     constructor(color: Colors, square: Square) {
+        Figure.counter++;
         this.color = color;
         this.square = square;
         this.square.figure = this;
         this.logo = null
         this.name = FigureNames.FIGURE
-        this.id = Math.random()
+        this.id = Figure.counter
         this.board = square.board;
         this.movement = []
     }
