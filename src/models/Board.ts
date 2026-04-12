@@ -15,15 +15,15 @@ export class Board {
     lostWhiteFigures:  Figure[] = []
 
     public initSquares() {
-        this.squares = [] // очищаем массив что бы потом добавить функционал рестарта
+        this.squares = []
 
         for (let i = 0; i < 8; i++) {
             const row: Square[] = []
             for (let j = 0; j < 8; j++) {
                 if ((i+j)%2 !== 0 ) {
-                    row.push(new Square(this, j, i, Colors.black, null)) // черные клетки
+                    row.push(new Square(this, j, i, Colors.black, null))
                 } else {
-                    row.push( new Square(this, j, i, Colors.white, null)) // белые клетки
+                    row.push( new Square(this, j, i, Colors.white, null))
                 }
             }
             this.squares.push(row)

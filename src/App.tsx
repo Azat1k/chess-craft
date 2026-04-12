@@ -4,6 +4,7 @@ import {Board} from "./models/Board";
 import {Colors} from "./models/Colors";
 import {Player} from "./models/Players";
 import LostFigures from "@/components/LostFigures.tsx";
+import Timer from "./components/Timer.tsx";
 
 const App = () => {
   const [board, setBoard] = useState(new Board());
@@ -29,21 +30,28 @@ const App = () => {
 
   return (
       <div className='app'>
-        <div /> {}
         <BoardComponent
             board={board}
             setBoard={setBoard}
             currentPlayer={currentPlayer}
             swapPlayer={swapPlayer}
         />
-        <div style={{ height: '672px', width: '450px', alignSelf: 'start', marginTop: '-0rem' }}>
+        <div style={
+            {
+            height: '672px',
+            width: '450px',
+            alignSelf: 'start',
+            marginTop: '-0rem' }}>
           <LostFigures
               LostWhiteFigures={board.lostWhiteFigures}
               LostBlackFigures={board.lostBlackFigures}
           />
+            <Timer
+                restart={restart}
+                currentPlayer={currentPlayer}
+            />
         </div>
       </div>
   )
 }
-
 export default App;
